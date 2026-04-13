@@ -9,8 +9,12 @@ const realImages = [
 ];
 
 const fakeImages = [
-    'fake/fake1.jpg',
-    'fake/fake2.jpg',
+    'fake/1.webp',
+    'fake/2.webp',
+    'fake/3.webp',
+    'fake/4.webp',
+    'fake/5.webp',
+    'fake/6.webp',
     // Добавьте здесь другие сгенерированные изображения
 ];
 
