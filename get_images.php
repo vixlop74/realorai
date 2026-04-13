@@ -1,5 +1,6 @@
 <?php
 function getImagesFromFolder($folder) {
+    // Добавляем .webp к списку поддерживаемых форматов
     $images = glob($folder . "/*.{jpg,jpeg,png,gif,webp}", GLOB_BRACE);
     return $images;
 }
