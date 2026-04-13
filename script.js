@@ -1,17 +1,18 @@
-const realImages = [
-    'real/real1.jpg',
-    'real/real2.jpg',
-    // Добавьте здесь другие реальные изображения
-];
-
-const fakeImages = [
-    'fake/fake1.jpg',
-    'fake/fake2.jpg',
-    // Добавьте здесь другие сгенерированные изображения
-];
-
+let realImages = [];
+let fakeImages = [];
 let currentImageIndex = 0;
 let currentImageIsReal = false;
+
+function loadImageList() {
+    fetch('get_images.php')
+        .then(response => response.json())
+        .then(data => {
+            realImages = data.real;
+            fakeImages = data.fake;
+            loadRandomImage();
+        })
+        .catch(error => console.error('Ошибка:', error));
+}
 
 function loadRandomImage() {
     const isReal = Math.random() < 0.5; // 50% шанс на реальное или сгенерированное изображение
@@ -42,5 +43,5 @@ document.getElementById('realButton').addEventListener('click', () => checkAnswe
 document.getElementById('fakeButton').addEventListener('click', () => checkAnswer(false));
 document.getElementById('nextButton').addEventListener('click', loadRandomImage);
 
-// Загружаем первое случайное изображение при старте
-loadRandomImage();
+// Загружаем список изображений при старте
+loadImageList();
