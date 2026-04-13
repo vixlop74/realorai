@@ -1,6 +1,6 @@
 <?php
 function getImagesFromFolder($folder) {
-    $images = glob($folder . "/*.{jpg,jpeg,png,gif}", GLOB_BRACE);
+    $images = glob($folder . "/*.{jpg,jpeg,png,gif,webp}", GLOB_BRACE);
     return $images;
 }
 
